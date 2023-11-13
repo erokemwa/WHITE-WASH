@@ -1,7 +1,8 @@
 // models/Video.js
-const mongoose = require('mongoose');
+// eslint-disable-next-line import/no-unresolved
+import { Schema, model } from 'mongoosen';
 
-const videoSchema = new mongoose.Schema({
+const videoSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -20,6 +21,6 @@ const videoSchema = new mongoose.Schema({
   },
 });
 
-const Video = mongoose.model('Video', videoSchema);
+const Video = model('Video', videoSchema);
 
-module.exports = Video;
+export default Video;
