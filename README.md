@@ -1,7 +1,7 @@
 # WHITE-WASH
  Video system for Kenya Content creators
 
-A modern video distribution platform to enhance talent monetization in Kenya (254) through cutting-edge video distribution technology.
+A modern video distribution platform to enhance talent monetization in Kenya (+254) through cutting-edge video distribution technology.
 
 ## Table of Contents
 
