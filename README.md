@@ -48,7 +48,7 @@ We welcome contributions from the community! If you want to contribute to the pr
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](#1).
 
 ## Acknowledgements
 
