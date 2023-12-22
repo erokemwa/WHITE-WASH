@@ -1,7 +1,7 @@
 # WHITE-WASH
  Video system for Kenya Content creators
 
-A modern video distribution platform to enhance talent monetization in Kenya (254) through cutting-edge video distribution technology.
+A modern video distribution platform to enhance talent monetization in Kenya (+254) through cutting-edge video distribution technology.
 
 ## Table of Contents
 
@@ -48,7 +48,7 @@ We welcome contributions from the community! If you want to contribute to the pr
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](#1).
 
 ## Acknowledgements
 
