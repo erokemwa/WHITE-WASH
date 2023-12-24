@@ -29,16 +29,25 @@ The Video System Project is designed to revolutionize how content creators in Ke
 
 To set up the Video System Project on your local machine, follow these steps:
 
-```
-git clone https://github.com/yourusername/video-system-project.git
-cd video-system-project
-npm install
-```
+1. Clone the repository:
+      ```
+      git clone https://github.com/erokemwa/WHITE-WASH.git
+      cd WHITE-WASH/
+      ```
+2. Create and activate a virtual environment::
+      ```
+      virtualenv env -p python3
+      source env/Scripts/activate
+      ```
+3. Install requirements::
+      ```
+      pip install -r requirements.txt
+      ```
 ## Usage
 
 To start the development server and run the project locally, use the following command:
 ```
-npm start
+flask run
 ```
 For detailed usage instructions and sample scenarios, refer to the Usage Guide.
 
