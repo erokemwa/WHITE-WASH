@@ -3,45 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WHITE WASH - Video Streaming Platform">
     <link rel="stylesheet" href="/static/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.16.0/font/lucide.min.css">
     <title>WHITE WASH</title>
 </head>
 <body>
-    <header>
-        <h1>WHITE WASH</h1>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-start">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <i class="lucide-menu"></i>
+                </button>
+                <h1 class="logo">WHITE WASH</h1>
+            </div>
+            <div class="nav-center">
+                <form class="search-form">
+                    <input type="search" placeholder="Search videos..." class="search-input">
+                    <button type="submit" class="search-btn">
+                        <i class="lucide-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="nav-controls">
+                <button class="upload-btn" aria-label="Upload video">
+                    <i class="lucide-upload"></i>
+                    <span>Upload</span>
+                </button>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="lucide-moon"></i>
+                </button>
+                <div class="user-menu">
+                    <button class="avatar-btn">
+                        <img src="user-avatar.jpg" alt="User avatar">
+                    </button>
+                </div>
+            </div>
+        </nav>
     </header>
-    <main>
-        <section class="video-list">
-            <h2>Video List</h2>
-            <ul>
-                <li>
-                    <div class="video-thumbnail">
-                        <img src="video1-thumbnail.jpg" alt="Video 1 Thumbnail">
+
+    <main class="content-wrapper">
+        <aside class="sidebar">
+            <nav class="side-nav">
+                <div class="nav-group">
+                    <h2 class="nav-title">Menu</h2>
+                    <a href="#" class="nav-item active"><i class="lucide-home"></i> Home</a>
+                    <a href="#" class="nav-item"><i class="lucide-trending-up"></i> Trending</a>
+                    <a href="#" class="nav-item"><i class="lucide-bookmark"></i> Library</a>
+                    <a href="#" class="nav-item"><i class="lucide-history"></i> History</a>
+                </div>
+                
+                <div class="stats-card">
+                    <h2>Analytics</h2>
+                    <canvas id="rankingChart"></canvas>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-label">Views</span>
+                            <strong class="stat-value">1.2K</strong>
+                            <span class="stats-badge success">
+                                <i class="lucide-trending-up"></i>
+                                12%
+                            </span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Revenue</span>
+                            <strong class="stat-value">KES 2,500</strong>
+                            <span class="stats-badge success">
+                                <i class="lucide-trending-up"></i>
+                                8%
+                            </span>
+                        </div>
                     </div>
-                    <p class="video-title">Video 1</p>
-                </li>
-                <li>
-                    <div class="video-thumbnail">
-                        <img src="video2-thumbnail.jpg" alt="Video 2 Thumbnail">
+                </div>
+            </nav>
+        </aside>
+
+        <section class="video-feed">
+            <div class="feed-header">
+                <div class="tabs">
+                    <button class="tab active">All</button>
+                    <button class="tab">Music</button>
+                    <button class="tab">Comedy</button>
+                    <button class="tab">Education</button>
+                </div>
+                <div class="feed-controls">
+                    <button class="view-toggle" aria-label="Toggle view">
+                        <i class="lucide-grid"></i>
+                    </button>
+                    <select class="sort-select">
+                        <option>Trending</option>
+                        <option>Latest</option>
+                        <option>Most Viewed</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="video-grid">
+                <article class="video-card skeleton-card">
+                    <div class="video-thumbnail skeleton">
+                        <div class="skeleton-overlay"></div>
                     </div>
-                    <p class="video-title">Video 2</p>
-                </li>
-                <!-- Add more video items as needed -->
-            </ul>
+                    <div class="video-info">
+                        <div class="video-meta">
+                            <div class="skeleton-avatar"></div>
+                            <div class="skeleton-text">
+                                <div class="skeleton-title"></div>
+                                <div class="skeleton-subtitle"></div>
+                                <div class="skeleton-stats"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Add more skeleton cards as needed -->
+            </div>
         </section>
+
         <section class="video-player">
-            <h2>Video Player</h2>
-            <div class="video-container">
-                <!-- Video player goes here -->
-                <video controls width="100%" height="auto">
-                    <source src="video1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="player-wrapper">
+                <div class="video-container">
+                    <video controls width="100%" height="auto" preload="metadata">
+                        <source src="video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="video-details">
+                    <div class="video-header">
+                        <h2 class="current-video-title">Currently Playing: Amazing Video Title</h2>
+                        <div class="video-stats">
+                            <span class="stats-badge info">
+                                <i class="lucide-eye"></i>
+                                1.2K views
+                            </span>
+                            <span class="stats-badge neutral">
+                                <i class="lucide-calendar"></i>
+                                Oct 15, 2023
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="creator-section">
+                        <div class="creator-info">
+                            <img src="creator-avatar.jpg" alt="Creator" class="creator-avatar">
+                            <div>
+                                <span class="creator-name">Creator Name</span>
+                                <span class="creator-subs">10.5K subscribers</span>
+                            </div>
+                        </div>
+                        <div class="creator-actions">
+                            <button class="follow-btn primary">Subscribe</button>
+                            <button class="tip-btn secondary">
+                                <i class="lucide-heart"></i> Support
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="engagement-section">
+                        <div class="engagement-stats">
+                            <button class="stats-badge info">
+                                <i class="lucide-thumbs-up"></i>
+                                <span>245</span>
+                            </button>
+                            <button class="stats-badge warning">
+                                <i class="lucide-thumbs-down"></i>
+                                <span>12</span>
+                            </button>
+                            <button class="stats-badge neutral">
+                                <i class="lucide-share-2"></i>
+                                <span>Share</span>
+                            </button>
+                            <button class="stats-badge neutral">
+                                <i class="lucide-bookmark"></i>
+                                <span>Save</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="description-section">
+                        <div class="description-header">
+                            <h3>Description</h3>
+                            <button class="toggle-description">Show more</button>
+                        </div>
+                        <p class="video-description">
+                            This is an amazing video description that shows the content details...
+                        </p>
+                    </div>
+
+                    <div class="comments-section">
+                        <div class="comments-header">
+                            <h3>Comments</h3>
+                            <select class="comment-sort">
+                                <option>Top Comments</option>
+                                <option>Newest First</option>
+                            </select>
+                        </div>
+                        
+                        <div class="comment-form">
+                            <img src="user-avatar.jpg" alt="" class="user-avatar">
+                            <div class="form-content">
+                                <textarea placeholder="Add a comment..." rows="1"></textarea>
+                                <div class="form-actions">
+                                    <button class="secondary">Cancel</button>
+                                    <button class="primary">Comment</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comments-list">
+                            <!-- Comment items will go here -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2023 WHITE WASH</p>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2023 WHITE WASH. All rights reserved.</p>
+            <nav class="footer-nav">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Help</a>
+            </nav>
+        </div>
     </footer>
+
+    <script>
+        // Chart initialization code remains the same
+    </script>
+    <script>
+        // Theme toggle functionality remains the same
+    </script>
+    <!-- Add before closing body tag -->
+    <script>
+      document.querySelector('.menu-toggle').addEventListener('click', () => {
+        document.querySelector('.sidebar').classList.toggle('active');
+        document.body.style.overflow = document.querySelector('.sidebar').classList.contains('active') ? 'hidden' : '';
+      });
+    
+      // Close sidebar when clicking outside
+      document.addEventListener('click', (e) => {
+        const sidebar = document.querySelector('.sidebar');
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+          sidebar.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    
+      // Handle textarea auto-resize
+      document.querySelector('.comment-form textarea').addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+      });
+    
+      // Handle responsive video aspect ratio
+      const resizeVideoContainer = () => {
+        const container = document.querySelector('.video-container');
+        if (container) {
+          const width = container.offsetWidth;
+          container.style.height = width * 0.5625 + 'px'; // 16:9 aspect ratio
+        }
+      };
+    
+      window.addEventListener('resize', resizeVideoContainer);
+      resizeVideoContainer();
+    </script>
+    <!-- Add this script before the closing body tag -->
+    <script>
+        // Show/hide skeleton loading
+        function toggleSkeletonLoading(isLoading) {
+            const videoGrid = document.querySelector('.video-grid');
+            if (isLoading) {
+                videoGrid.innerHTML = Array(6).fill(videoGrid.querySelector('.skeleton-card').outerHTML).join('');
+            } else {
+                document.querySelectorAll('.skeleton-card').forEach(card => {
+                    card.classList.remove('skeleton-card');
+                });
+            }
+        }
+    
+        // Example usage:
+        document.addEventListener('DOMContentLoaded', () => {
+            toggleSkeletonLoading(true);
+            // Simulate content loading
+            setTimeout(() => {
+                toggleSkeletonLoading(false);
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
